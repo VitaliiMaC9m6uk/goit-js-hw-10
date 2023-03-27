@@ -2,7 +2,6 @@ import './css/styles.css';
 import Notiflix from 'notiflix';
 import  debounce  from "lodash.debounce"
 import { getCountries } from './fetchCountries.js'
-import { getCountriesZwei } from './fetchCountries.js';
 import { renderCountry } from './render';
 import { renderCountries } from './render';
 const DEBOUNCE_DELAY = 300;
