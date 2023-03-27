@@ -1,6 +1,6 @@
 import './css/styles.css';
 import Notiflix from 'notiflix';
-import { debounce } from "lodash.debounce"
+import  debounce  from "lodash.debounce"
 import { getCountries } from './fetchCountries.js'
 import { getCountriesZwei } from './fetchCountries.js';
 import { renderCountry } from './render';
@@ -29,13 +29,13 @@ const serverRequest = (search) => getCountries(search)
     .catch(e => console.log(e));
 
 var debounce = require('lodash.debounce');
-searchInput.addEventListener('input', () => {
+searchInput.addEventListener('input', debounce(() => {
     const search = document.querySelector('#search-box').value;
     if (search.trim()!=='') {
         serverRequest(search);
     } else {
         return;
     }    
-}
+},300)
 );
 
