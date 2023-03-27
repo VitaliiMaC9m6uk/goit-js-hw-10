@@ -26,15 +26,16 @@ const serverRequest = (search) => getCountries(search)
         }
     )
     .catch(e => console.log(e));
-
-var debounce = require('lodash.debounce');
-searchInput.addEventListener('input', debounce(() => {
-    const search = document.querySelector('#search-box').value;
+    function makeInput(event) {    
+        const search = event.target.value; 
+        console.log(search);    
     if (search.trim()!=='') {
         serverRequest(search);
     } else {
         return;
     }    
-},300)
-);
+
+}
+
+searchInput.addEventListener('input', debounce(makeInput,DEBOUNCE_DELAY));
 
